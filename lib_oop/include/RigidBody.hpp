@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <glm/glm.hpp>
 
+namespace ObjectEngine {
+
 class RigidBody {
 
     friend class CollisionManager;
@@ -23,3 +25,5 @@ class RigidBody {
 
         sf::CircleShape shape;
 };
+
+}

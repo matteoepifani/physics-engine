@@ -4,6 +4,8 @@
 #include <RigidBody.hpp>
 #include <vector>
 
+namespace ObjectEngine {
+
 class CollisionManager {
     public:
         void checkCollisions(std::vector<std::unique_ptr<RigidBody>>& bodies);
@@ -11,3 +13,5 @@ class CollisionManager {
     private:
         void collisionResponse(RigidBody& a, RigidBody& b);
 };
+
+}

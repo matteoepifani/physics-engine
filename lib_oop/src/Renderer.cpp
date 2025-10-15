@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include <RigidBody.hpp>
 
+namespace ObjectEngine {
+
 void Renderer::renderObjects(sf::RenderWindow& window, const std::vector<std::unique_ptr<RigidBody>>& bodies) {
     window.clear();
 
@@ -13,4 +15,6 @@ void Renderer::renderObjects(sf::RenderWindow& window, const std::vector<std::un
     }
 
     window.display();
+}
+
 }

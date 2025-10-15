@@ -1,12 +1,25 @@
-#include <Engine.hpp>
+#include <cstdlib>
+#include <time.h>
+
+#include <ObjectEngine.hpp>
+#include <ECSEngine.hpp>
+#include <Config.hpp>
 
 
 int main() {
-    Engine myEngine;
+    ECSEngine::Engine myEngine;
 
-    myEngine.addBody(50, glm::vec2{100, 200}, glm::vec2{0, -200}, glm::vec2{0, 0}, 10);
-    myEngine.addBody(50, glm::vec2{500, 200}, glm::vec2{400, 200}, glm::vec2{0, 0}, 10);
-    myEngine.addBody(50, glm::vec2{250, 200}, glm::vec2{210, -50}, glm::vec2{0, 0}, 10);
+    srand(1000);
+    
+    int num_bodies = 100;
+
+    for (int i = 0; i < num_bodies; i++) {
+        myEngine.addBody(10, 
+                    glm::vec2{rand() % int(ObjectEngine::config::WIDTH_X - 50) + 50, rand() % int(ObjectEngine::config::WIDTH_Y - 50) + 50}, 
+                    glm::vec2{rand() % 500, rand() % 500}, 
+                    glm::vec2{0, 0}, 
+                    10);
+    }
 
     myEngine.start_world();
 }

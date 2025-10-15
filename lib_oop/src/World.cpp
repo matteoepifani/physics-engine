@@ -8,6 +8,8 @@
 #include <RigidBody.hpp>
 #include <SFML/Graphics.hpp>
 
+namespace ObjectEngine {
+
 void World::updateWorld(float dt) {
     for (const auto& body: bodies) {
         body->update(dt);
@@ -27,4 +29,6 @@ void World::removeBody(std::unique_ptr<RigidBody> body){
 
 const std::vector<std::unique_ptr<RigidBody>>& World::getBodies() const {
     return bodies;
+}
+
 }

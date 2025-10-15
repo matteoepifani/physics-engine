@@ -1,7 +1,5 @@
-#include <Engine.hpp>
+#include <ObjectEngine.hpp>
 
-#include <iostream>
-#include <chrono>
 #include <cmath>
 #include <memory>
 #include <SFML/Graphics.hpp>
@@ -10,6 +8,8 @@
 #include <Config.hpp>
 #include <Renderer.hpp>
 #include <World.hpp>
+
+namespace ObjectEngine {
 
 Engine::Engine():
     window(sf::RenderWindow(sf::VideoMode(config::WIDTH_X, config::WIDTH_Y), "Engine")) {
@@ -30,6 +30,7 @@ void Engine::start_world() {
 
         while(accumulator >= dt) {
             Engine_World.updateWorld(dt);
+
             accumulator -= dt;
         }
 
@@ -43,4 +44,6 @@ void Engine::addBody(int rad, glm::vec2 position, glm::vec2 velocity, glm::vec2 
 
 void Engine::renderWorld(){
         Engine_Renderer.renderObjects(window, Engine_World.getBodies());
+}
+
 }

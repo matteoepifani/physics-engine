@@ -5,6 +5,8 @@
 #include <Renderer.hpp>
 #include <World.hpp>
 
+namespace ObjectEngine {
+
 class Engine {
     public:
         Engine();
@@ -15,7 +17,9 @@ class Engine {
     private:
         void renderWorld();
 
-        Renderer Engine_Renderer;
         World Engine_World;
+        Renderer Engine_Renderer;
         sf::RenderWindow window;
 };
+
+}

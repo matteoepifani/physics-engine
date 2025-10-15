@@ -6,6 +6,8 @@
 #include <glm/glm.hpp>
 #include <Renderer.hpp>
 
+namespace ObjectEngine {
+
 class World {
 
     public:
@@ -19,3 +21,5 @@ class World {
         std::vector<std::unique_ptr<RigidBody>> bodies;
         CollisionManager World_Collision_Manager;
 };
+
+}

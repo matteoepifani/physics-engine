@@ -2,9 +2,12 @@
 
 #include <memory>
 
+#include <glm/glm.hpp>
+
 #include <Config.hpp>
 #include <RigidBody.hpp>
 
+namespace ObjectEngine {
 
 void CollisionManager::checkCollisions(std::vector<std::unique_ptr<RigidBody>>& bodies) {
     for (int i = 0; i < bodies.size(); i++) {
@@ -60,4 +63,6 @@ void CollisionManager::collisionResponse(RigidBody& a, RigidBody& b) {
     
     a.velocity = van_p*n + vat*t;
     b.velocity = vbn_p*n + vbt*t;
+}
+
 }
